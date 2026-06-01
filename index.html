@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Search PH — Trusted Household Staffing</title>
+<meta name="description" content="Job Search PH connects households across Bacolod and Negros Occidental with screened, verified kasambahay, yaya, and household staff. No placement, no fee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#edf0fb; --bg2:#f6f8fd;
+    --indigo:#3d4fd6; --indigo-deep:#2f3cb0;
+    --navy:#162046; --navy-2:#1c2750;
+    --slate:#525d7e; --slate-soft:#7e87a8; --slate-faint:#a3abc6;
+    --card:#ffffff; --line:#e3e8f5; --line-soft:#eef1fa;
+    --peach:#fdf4ea; --orange:#e8893a; --orange-text:#b85f1c;
+    --radius:20px; --radius-sm:14px; --maxw:1160px;
+    --shadow:0 18px 50px -24px rgba(34,46,110,.30);
+    --shadow-sm:0 8px 24px -14px rgba(34,46,110,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{
+    font-family:'Poppins',sans-serif;color:var(--navy);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(circle at 12% -5%,rgba(61,79,214,.10),transparent 42%),
+      radial-gradient(circle at 95% 8%,rgba(61,79,214,.07),transparent 38%),
+      linear-gradient(180deg,var(--bg1),var(--bg2) 60%);
+    background-attachment:fixed;
+  }
+  a{color:var(--indigo-deep);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* logo */
+  .logo{display:inline-flex;align-items:center;gap:11px;font-weight:700;color:var(--navy);font-size:1.08rem}
+  .logo .mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(150deg,#4a5ce6,#2f3cb0);
+    display:grid;place-items:center;box-shadow:0 8px 18px -8px rgba(47,60,176,.7)}
+  .logo .mark svg{width:20px;height:20px}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;transition:.3s}
+  header.nav.scrolled{background:rgba(246,248,253,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--maxw);margin:0 auto}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:var(--slate);font-size:.92rem;font-weight:500;transition:.2s}
+  .nav-links a:hover{color:var(--indigo-deep)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:600;font-size:.92rem;
+    border-radius:999px;padding:11px 22px;cursor:pointer;border:none;transition:.22s;white-space:nowrap}
+  .btn-primary{background:linear-gradient(150deg,#4a5ce6,#2f3cb0);color:#fff;box-shadow:0 12px 26px -12px rgba(47,60,176,.75)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 32px -14px rgba(47,60,176,.85);text-decoration:none}
+  .btn-ghost{background:rgba(255,255,255,.7);color:var(--navy);border:1px solid var(--line)}
+  .btn-ghost:hover{background:#fff;border-color:#cdd6ef;text-decoration:none;transform:translateY(-2px)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;color:var(--navy);font-size:1.4rem}
+
+  /* ---------- hero ---------- */
+  .hero{padding:54px 0 30px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--indigo);font-size:.76rem;font-weight:600;
+    letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--indigo);border-radius:2px}
+  .hero h1{font-size:clamp(2.4rem,5.2vw,3.7rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--navy);margin-bottom:20px}
+  .hero h1 .hl{color:var(--indigo);position:relative}
+  .hero p.sub{font-size:1.08rem;color:var(--slate);max-width:48ch;margin-bottom:28px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+  .hero-cta .btn{padding:14px 26px;font-size:.96rem}
+  .hero-trust{display:flex;align-items:center;gap:14px;color:var(--slate-soft);font-size:.84rem}
+  .hero-trust .dot{width:5px;height:5px;border-radius:50%;background:var(--indigo);opacity:.6}
+
+  /* hero card cluster */
+  .hero-visual{position:relative;height:440px}
+  .fcard{position:absolute;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow);padding:18px}
+  .fcard.main{width:300px;top:40px;left:20px;z-index:3;animation:float1 6s ease-in-out infinite}
+  .fcard.badge{top:0;right:14px;z-index:4;display:flex;align-items:center;gap:10px;padding:13px 18px;animation:float2 5s ease-in-out infinite}
+  .fcard.toast{bottom:26px;right:0;z-index:5;display:flex;align-items:center;gap:12px;padding:15px 18px;width:262px;animation:float3 7s ease-in-out infinite}
+  @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+  @keyframes float3{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  .cand-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .avatar{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,#6f7fea,#3d4fd6);color:#fff;display:grid;place-items:center;font-weight:700;font-size:1.1rem}
+  .cand-name{font-weight:600;color:var(--navy);font-size:.96rem;line-height:1.2}
+  .cand-role{color:var(--slate-soft);font-size:.8rem}
+  .tier{margin-left:auto;background:#eafaf0;color:#1f9d57;font-size:.68rem;font-weight:700;padding:4px 9px;border-radius:7px;letter-spacing:.03em}
+  .cand-rows{display:flex;flex-direction:column;gap:9px}
+  .crow{display:flex;justify-content:space-between;font-size:.82rem}
+  .crow span:first-child{color:var(--slate-soft)}
+  .crow span:last-child{color:var(--navy);font-weight:500}
+  .verify{width:30px;height:30px;border-radius:9px;background:#eafaf0;color:#1f9d57;display:grid;place-items:center}
+  .badge .vt{font-weight:600;font-size:.84rem;color:var(--navy)}
+  .badge .vs{font-size:.72rem;color:var(--slate-soft)}
+  .toast .ti{width:38px;height:38px;border-radius:11px;background:linear-gradient(150deg,#4a5ce6,#2f3cb0);color:#fff;display:grid;place-items:center;flex-shrink:0}
+  .toast .tt{font-weight:600;font-size:.86rem;color:var(--navy);line-height:1.25}
+  .toast .ts{font-size:.74rem;color:var(--slate-soft)}
+  .blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.5;z-index:0}
+  .blob.b1{width:200px;height:200px;background:rgba(122,138,240,.4);top:60px;right:60px}
+  .blob.b2{width:160px;height:160px;background:rgba(232,137,58,.25);bottom:40px;left:40px}
+
+  /* ---------- trust strip ---------- */
+  .strip{margin-top:18px}
+  .strip-inner{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);
+    padding:22px 28px;display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:center}
+  .pill{display:inline-flex;align-items:center;gap:9px;font-size:.88rem;font-weight:500;color:var(--navy)}
+  .pill svg{width:18px;height:18px;color:var(--indigo);flex-shrink:0}
+  .pill.sep{color:var(--line);padding:0}
+
+  /* ---------- section base ---------- */
+  section.block{padding:72px 0}
+  .sec-head{text-align:center;max-width:620px;margin:0 auto 48px}
+  .sec-head .eyebrow{justify-content:center}
+  .sec-head .eyebrow::before{display:none}
+  .sec-head h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;letter-spacing:-.02em;color:var(--navy);line-height:1.1;margin-bottom:14px}
+  .sec-head p{color:var(--slate);font-size:1.02rem}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow-sm);position:relative;transition:.25s}
+  .step:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .step .n{font-size:.78rem;font-weight:700;color:var(--indigo);letter-spacing:.1em;margin-bottom:16px}
+  .step .ic{width:50px;height:50px;border-radius:14px;background:linear-gradient(150deg,#eef1ff,#dde3ff);display:grid;place-items:center;color:var(--indigo-deep);margin-bottom:18px}
+  .step .ic svg{width:24px;height:24px}
+  .step h3{font-size:1.18rem;font-weight:600;color:var(--navy);margin-bottom:9px}
+  .step p{color:var(--slate);font-size:.93rem}
+
+  /* ---------- stats band ---------- */
+  .stats{background:linear-gradient(150deg,#1c2750,#141d3e);border-radius:28px;padding:54px 40px;color:#fff;position:relative;overflow:hidden}
+  .stats::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(74,92,230,.35);filter:blur(70px);top:-120px;right:-60px}
+  .stats::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(232,137,58,.18);filter:blur(70px);bottom:-100px;left:-40px}
+  .stats-head{text-align:center;margin-bottom:42px;position:relative}
+  .stats-head .eyebrow{color:#9aa6f5;justify-content:center}
+  .stats-head .eyebrow::before{display:none}
+  .stats-head h2{font-size:clamp(1.8rem,3.6vw,2.4rem);font-weight:700;letter-spacing:-.01em}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative}
+  .stat{text-align:center}
+  .stat .num{font-size:clamp(2.2rem,4vw,3rem);font-weight:800;line-height:1;letter-spacing:-.02em;
+    background:linear-gradient(120deg,#fff,#aeb8ff);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+  .stat .lbl{color:#b7c0e8;font-size:.88rem;max-width:22ch;margin:0 auto}
+
+  /* ---------- two paths ---------- */
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .path{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px 34px;box-shadow:var(--shadow-sm);transition:.25s}
+  .path:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .path .tag{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding:6px 12px;border-radius:999px;margin-bottom:18px}
+  .path.hire .tag{background:#eef1ff;color:var(--indigo-deep)}
+  .path.work .tag{background:#fdf4ea;color:var(--orange-text)}
+  .path h3{font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:-.01em}
+  .path p.desc{color:var(--slate);font-size:.96rem;margin-bottom:22px}
+  .path ul{list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:12px}
+  .path ul li{position:relative;padding-left:28px;color:var(--slate);font-size:.93rem}
+  .path ul li svg{position:absolute;left:0;top:3px;width:18px;height:18px;color:var(--indigo)}
+  .path.work ul li svg{color:var(--orange)}
+  .path .actions{display:flex;flex-direction:column;gap:10px}
+  .actbtn{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:13px;border:1px solid var(--line);
+    background:#fbfcff;transition:.2s;font-weight:500;color:var(--navy);font-size:.92rem}
+  .actbtn:hover{border-color:#c7d0ef;background:#fff;transform:translateX(3px);text-decoration:none}
+  .actbtn .ai{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;color:#fff}
+  .actbtn .ai.mail{background:#3d4fd6}.actbtn .ai.msg{background:#0a7cff}.actbtn .ai.form{background:#e8893a}
+  .actbtn .ai svg{width:17px;height:17px}
+  .actbtn small{display:block;color:var(--slate-soft);font-size:.76rem;font-weight:400}
+
+  /* ---------- why / testimonials ---------- */
+  .testi{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow-sm);transition:.25s}
+  .tcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .stars{color:#f0a83a;font-size:.95rem;margin-bottom:14px;letter-spacing:2px}
+  .tcard p{color:var(--slate);font-size:.94rem;margin-bottom:18px;font-style:italic}
+  .twho{display:flex;align-items:center;gap:11px}
+  .twho .ta{width:40px;height:40px;border-radius:11px;background:linear-gradient(150deg,#6f7fea,#3d4fd6);color:#fff;display:grid;place-items:center;font-weight:700}
+  .twho .tn{font-weight:600;color:var(--navy);font-size:.9rem;line-height:1.2}
+  .twho .tl{color:var(--slate-soft);font-size:.78rem}
+
+  /* ---------- final cta ---------- */
+  .finalcta{text-align:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:56px 40px;box-shadow:var(--shadow)}
+  .finalcta h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:700;color:var(--navy);letter-spacing:-.02em;margin-bottom:14px}
+  .finalcta p{color:var(--slate);max-width:48ch;margin:0 auto 28px;font-size:1.02rem}
+  .finalcta .hero-cta{justify-content:center}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:80px;border-top:1px solid var(--line);background:rgba(255,255,255,.5)}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:54px 24px 30px;max-width:var(--maxw);margin:0 auto}
+  .foot .about{max-width:34ch;color:var(--slate);font-size:.9rem;margin-top:14px}
+  .foot h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate-faint);margin-bottom:16px}
+  .foot ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot ul li a{color:var(--slate);font-size:.9rem}.foot ul li a:hover{color:var(--indigo-deep)}
+  .foot-bottom{border-top:1px solid var(--line-soft);text-align:center;padding:20px;color:var(--slate-soft);font-size:.82rem}
+
+  /* reveal */
+  /* services */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .svc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow-sm);transition:.25s}
+  .svc:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .svc .ic{width:52px;height:52px;border-radius:14px;background:linear-gradient(150deg,#eef1ff,#dde3ff);display:grid;place-items:center;color:var(--indigo-deep);margin-bottom:18px}
+  .svc .ic svg{width:26px;height:26px}
+  .svc h3{font-size:1.16rem;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .svc p{color:var(--slate);font-size:.92rem}
+
+  /* faq */
+  .faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);overflow:hidden;transition:.2s}
+  .faq[open]{box-shadow:var(--shadow)}
+  .faq summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600;color:var(--navy);font-size:1rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .q{flex:1}
+  .faq summary .chev{width:28px;height:28px;border-radius:8px;background:#eef1ff;color:var(--indigo-deep);display:grid;place-items:center;flex-shrink:0;transition:.25s}
+  .faq summary .chev svg{width:16px;height:16px}
+  .faq[open] summary .chev{transform:rotate(180deg);background:var(--indigo);color:#fff}
+  .faq .a{padding:0 24px 20px;color:var(--slate);font-size:.94rem;line-height:1.62;max-width:68ch}
+  .faq .a strong{color:var(--navy);font-weight:600}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.16,.84,.44,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- support widget ---------- */
+  .support{position:fixed;bottom:24px;right:24px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+  .support-panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -20px rgba(34,46,110,.45);
+    width:300px;padding:20px;transform:translateY(16px) scale(.96);opacity:0;pointer-events:none;transform-origin:bottom right;transition:.26s cubic-bezier(.16,.84,.44,1)}
+  .support.open .support-panel{transform:none;opacity:1;pointer-events:auto}
+  .support-panel .sh{display:flex;align-items:center;gap:11px;margin-bottom:5px}
+  .support-panel .sh .sdot{width:9px;height:9px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18)}
+  .support-panel .sh b{color:var(--navy);font-size:1rem;font-weight:600}
+  .support-panel .sd{color:var(--slate-soft);font-size:.82rem;margin-bottom:16px;line-height:1.45}
+  .schat{display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:13px;border:1px solid var(--line);
+    background:#fbfcff;transition:.2s;margin-bottom:9px}
+  .schat:last-child{margin-bottom:0}
+  .schat:hover{background:#fff;border-color:#c7d0ef;transform:translateX(3px);text-decoration:none}
+  .schat .si{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:#fff;flex-shrink:0}
+  .schat .si.msg{background:#0a7cff}.schat .si.mail{background:#3d4fd6}
+  .schat .si svg{width:18px;height:18px}
+  .schat .stxt b{display:block;color:var(--navy);font-size:.9rem;font-weight:600;line-height:1.2}
+  .schat .stxt small{color:var(--slate-soft);font-size:.74rem}
+  .schat .fast{margin-left:auto;background:#eafaf0;color:#1f9d57;font-size:.62rem;font-weight:700;padding:3px 7px;border-radius:6px;letter-spacing:.04em}
+  .support-fab{width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(150deg,#4a5ce6,#2f3cb0);color:#fff;display:grid;place-items:center;
+    box-shadow:0 16px 34px -12px rgba(47,60,176,.8);transition:.24s;position:relative}
+  .support-fab:hover{transform:translateY(-3px) scale(1.04)}
+  .support-fab svg{width:26px;height:26px;transition:.24s;position:absolute}
+  .support-fab .ic-close{opacity:0;transform:rotate(-90deg) scale(.6)}
+  .support.open .support-fab .ic-chat{opacity:0;transform:rotate(90deg) scale(.6)}
+  .support.open .support-fab .ic-close{opacity:1;transform:none}
+  .support-fab .ping{position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#e8893a;border:2px solid #fff}
+
+  @media(max-width:480px){
+    .support{bottom:16px;right:16px}
+    .support-panel{width:min(82vw,300px)}
+  }
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:30px}
+    .hero-visual{height:380px;max-width:420px;margin:0 auto}
+    .steps,.stat-grid,.testi{grid-template-columns:1fr 1fr}
+    .paths{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .nav-links{display:none}
+    .steps,.stat-grid,.testi{grid-template-columns:1fr}
+    .stats{padding:42px 22px}
+    .foot{grid-template-columns:1fr}
+    .strip-inner .pill.sep{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8.5h12l-.9 9.8a2.3 2.3 0 0 1-2.3 2.1H9.2a2.3 2.3 0 0 1-2.3-2.1L6 8.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+      Job Search PH
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#start">Get started</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#start" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal in">
+      <span class="eyebrow">Trusted Household Staffing</span>
+      <h1>Trusted household help, <span class="hl">matched with care.</span></h1>
+      <p class="sub">Job Search PH connects households with screened, verified <strong>kasambahay, yaya, and household staff</strong> across Bacolod and Negros Occidental. No placement, no fee.</p>
+      <div class="hero-cta">
+        <a href="#start" class="btn btn-primary">Hire household staff
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#start" class="btn btn-ghost">Apply as a worker</a>
+      </div>
+      <div class="hero-trust">
+        <span>Bacolod</span><span class="dot"></span><span>Talisay</span><span class="dot"></span><span>Silay</span><span class="dot"></span><span>Bago City</span>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal in">
+      <span class="blob b1"></span><span class="blob b2"></span>
+      <div class="fcard badge">
+        <span class="verify"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M5 13l4 4 10-10" stroke="#1f9d57" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><div class="vt">Verified & screened</div><div class="vs">ID + references checked</div></div>
+      </div>
+      <div class="fcard main">
+        <div class="cand-top">
+          <span class="avatar">M</span>
+          <div><div class="cand-name">Maria S.</div><div class="cand-role">Yaya · Bacolod</div></div>
+          <span class="tier">TIER A</span>
+        </div>
+        <div class="cand-rows">
+          <div class="crow"><span>Experience</span><span>5 years</span></div>
+          <div class="crow"><span>Availability</span><span>Immediate</span></div>
+          <div class="crow"><span>Status</span><span>For employer review</span></div>
+        </div>
+      </div>
+      <div class="fcard toast">
+        <span class="ti"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M5 12l4 4 10-10" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><div class="tt">Matched in 48 hours</div><div class="ts">Shortlist sent to employer</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="wrap strip reveal">
+    <div class="strip-inner">
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified &amp; Screened</span>
+      <span class="pill sep">·</span>
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>No Placement, No Fee</span>
+      <span class="pill sep">·</span>
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>30-Day Replacement Guarantee</span>
+      <span class="pill sep">·</span>
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 11h5M18.5 8.5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Workers Always Pay ₱0</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we place</span>
+      <h2>Household roles we match</h2>
+      <p>Screened, verified candidates for the roles families need most — available live-in or live-out.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 11l8-7 8 7M6 9.5V20h12V9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20v-5h4v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Kasambahay / Househelper</h3>
+        <p>General cleaning, household chores, washing, and day-to-day upkeep of the home.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M6 21c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M10 7h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3>Yaya</h3>
+        <p>Attentive childcare for infants and toddlers, including feeding, play, and routines.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-9.2-8.8C1 9 2.8 5.5 6.3 5.5c2 0 3.3 1.2 4.2 2.6C11.4 6.7 12.7 5.5 14.7 5.5c3.5 0 5.3 3.5 3.5 6.7C16 16.6 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3>Elderly Caregiver</h3>
+        <p>Companionship and daily support for seniors — meals, mobility, and gentle care.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M7 9a5 5 0 0 1 10 0c1.5.4 2 1.4 2 2.5 0 1.4-1.2 2.5-2.7 2.5H7.7C6.2 14 5 12.9 5 11.5 5 10.4 5.5 9.4 7 9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 18h10M8 14v4M16 14v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3>Cook / Kusinera</h3>
+        <p>Meal planning and preparation, kitchen management, and family dietary needs.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.3 5.5L20 9l-4.4 3.8L17 19l-5-3-5 3 1.4-6.2L4 9l5.7-.5L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>All-Around Helper</h3>
+        <p>Flexible support across cleaning, cooking, laundry, and light childcare as needed.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3h8l-1 4H9L8 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><rect x="5" y="7" width="14" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="14" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Laundry / Labandera</h3>
+        <p>Dedicated washing, ironing, and fabric care for busy households.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Hiring help, made simple</h2>
+      <p>Tell us what you need, we do the screening, you make the final call. You only pay when you successfully hire.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="n">STEP 01</div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H7l-3 3V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3>Send your job request</h3>
+        <p>Message us your requirements — role, schedule, location, and offered salary. Takes two minutes by email or Messenger.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">STEP 02</div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9 11l1.6 1.6L14 9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>We screen &amp; match</h3>
+        <p>We verify candidate details and references, then send you a shortlist of suitable, vetted workers to review.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">STEP 03</div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-9.2-8.8C1 9 2.8 5.5 6.3 5.5c2 0 3.3 1.2 4.2 2.6C11.4 6.7 12.7 5.5 14.7 5.5c3.5 0 5.3 3.5 3.5 6.7C16 16.6 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3>Interview &amp; hire</h3>
+        <p>Interview your shortlist and choose. Pay the service fee only after a successful hire — backed by a 30-day replacement guarantee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="block" style="padding-top:10px">
+  <div class="wrap reveal">
+    <div class="stats">
+      <div class="stats-head">
+        <span class="eyebrow">Why Job Search PH</span>
+        <h2>Built on trust, not risk</h2>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><div class="num">4</div><div class="lbl">Cities served across Negros Occidental</div></div>
+        <div class="stat"><div class="num">30<span style="font-size:.5em">days</span></div><div class="lbl">Free replacement if a hire doesn't work out</div></div>
+        <div class="stat"><div class="num">₱0</div><div class="lbl">Cost to jobseekers — employers pay the fee</div></div>
+        <div class="stat"><div class="num">100%</div><div class="lbl">Candidates basic-screened before endorsement</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / TESTIMONIALS -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What people say</span>
+      <h2>Households &amp; workers we've helped</h2>
+      <p>Real coordination, real placements across Bacolod and Negros Occidental.</p>
+    </div>
+    <div class="testi">
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>"They understood exactly what our family needed and sent us a shortlist within days. The yaya we hired has been wonderful with our kids."</p>
+        <div class="twho"><span class="ta">J</span><div><div class="tn">Employer · Bacolod</div><div class="tl">Hired a yaya</div></div></div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>"No upfront fee and they only charged once we actually hired. Felt safe and straightforward the whole way through."</p>
+        <div class="twho"><span class="ta">R</span><div><div class="tn">Employer · Talisay</div><div class="tl">Hired a kasambahay</div></div></div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>"I applied for free and they helped match me to a good household. Everything was clear and professional."</p>
+        <div class="twho"><span class="ta">A</span><div><div class="tn">Jobseeker · Silay</div><div class="tl">Placed as househelp</div></div></div>
+      </div>
+      <div class="tcard reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Service was great. You were very helpful."</p>
+        <div class="twho"><span class="ta">A</span><div><div class="tn">Ana B.</div><div class="tl">Employer</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+      <p>The essentials before you hire or apply.</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq">
+        <summary><span class="q">How much does it cost?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+        <div class="a">For employers, our service fee is <strong>20% of the candidate's agreed first-month salary</strong>, charged only when you successfully hire. <strong>No placement, no fee.</strong> Jobseekers are never charged anything.</div>
+      </details>
+      <details class="faq">
+        <summary><span class="q">When do I pay the fee?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+        <div class="a">The fee is due at <strong>turnover of the candidate's complete requirements, or the worker's first day — whichever comes first.</strong> Nothing is due upfront, and nothing is owed unless you actually hire.</div>
+      </details>
+      <details class="faq">
+        <summary><span class="q">Is it really free for jobseekers?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+        <div class="a">Yes. Workers <strong>never pay us</strong>, consistent with the Domestic Workers Act (RA 10361). Only employers are charged, and only after a successful hire.</div>
+      </details>
+      <details class="faq">
+        <summary><span class="q">What if the hire doesn't work out?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+        <div class="a">We offer a <strong>30-day replacement guarantee</strong>. If a hired candidate leaves or proves unsuitable within 30 days of their first day, we provide one replacement at no additional service fee — subject to our <a href="terms.html#s5">terms</a>.</div>
+      </details>
+      <details class="faq">
+        <summary><span class="q">How are candidates screened?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+        <div class="a">We conduct basic screening and verify candidate details and references before endorsing anyone. You always conduct the <strong>final interview</strong> and make the hiring decision yourself.</div>
+      </details>
+      <details class="faq">
+        <summary><span class="q">What areas do you serve?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+        <div class="a">Currently <strong>Bacolod, Talisay, Silay, and Bago City</strong> in Negros Occidental. We're focused on serving these areas well before expanding.</div>
+      </details>
+      <details class="faq">
+        <summary><span class="q">How do I get started?</span><span class="chev"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
+        <div class="a"><strong>Employers:</strong> send your job request by email or Messenger. <strong>Jobseekers:</strong> apply through our application form. We'll review and take it from there — see the options below.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section class="block" id="start">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Get started</span>
+      <h2>Whether you're hiring or job-hunting</h2>
+      <p>Pick your path below. We'll take it from there.</p>
+    </div>
+    <div class="paths">
+      <!-- HIRE -->
+      <div class="path hire reveal">
+        <span class="tag">For Employers</span>
+        <h3>I want to hire</h3>
+        <p class="desc">Send us your job request and we'll match you with screened candidates. You only pay when you successfully hire.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Screened, verified candidates</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No placement, no fee</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>30-day replacement guarantee</li>
+        </ul>
+        <div class="actions">
+          <a class="actbtn" href="mailto:jobsearchph.official@gmail.com?subject=Job%20Request%20—%20Household%20Staff&body=Role%20needed%3A%20%0ALocation%3A%20%0ASchedule%20(live-in%2Flive-out)%3A%20%0AOffered%20salary%3A%20%0AStart%20date%3A%20">
+            <span class="ai mail"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Email your job request<small>jobsearchph.official@gmail.com</small></span>
+          </a>
+          <a class="actbtn" href="https://m.me/thejobsearchph" target="_blank" rel="noopener">
+            <span class="ai msg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C6.5 3 3 6.9 3 11.2c0 2.4 1.1 4.5 3 5.9V21l3-1.6c.9.2 1.9.4 3 .4 5.5 0 9-3.9 9-8.6S17.5 3 12 3Z" stroke="#fff" stroke-width="1.6"/><path d="M7 13l3-3 2 2 3-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Message us on Messenger<small>Quick replies during business hours</small></span>
+          </a>
+        </div>
+      </div>
+      <!-- WORK -->
+      <div class="path work reveal">
+        <span class="tag">For Jobseekers</span>
+        <h3>I'm looking for work</h3>
+        <p class="desc">Apply for free through our application form. We'll review your details and match you to suitable households.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Always free for jobseekers</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kasambahay, yaya &amp; household roles</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Local placements across Negros Occidental</li>
+        </ul>
+        <div class="actions">
+          <a class="actbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSdOLkZmlQTG_jlHz1d9Kggs-nB9U0z2tsK2U4qVGfEv0Y2iwA/viewform" target="_blank" rel="noopener">
+            <span class="ai form"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l3 3v15H6zM15 3v3h3" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h6M9 15h6M9 9h3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span>Apply via our form<small>Fill out the application — takes ~5 minutes</small></span>
+          </a>
+          <a class="actbtn" href="https://m.me/thejobsearchph" target="_blank" rel="noopener">
+            <span class="ai msg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C6.5 3 3 6.9 3 11.2c0 2.4 1.1 4.5 3 5.9V21l3-1.6c.9.2 1.9.4 3 .4 5.5 0 9-3.9 9-8.6S17.5 3 12 3Z" stroke="#fff" stroke-width="1.6"/><path d="M7 13l3-3 2 2 3-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Ask a question on Messenger<small>We're happy to help</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIZATIONS -->
+<section class="block" id="orgs" style="padding-top:10px">
+  <div class="wrap reveal">
+    <div class="finalcta">
+      <span class="eyebrow">For organizations</span>
+      <h2>Have an organization? Let's talk.</h2>
+      <p>Hiring for a business, hotel, clinic, condo, or staffing partner? We work with organizations on bulk and recurring placements across Bacolod and Negros Occidental. Reach out and we'll tailor a plan with you.</p>
+      <div class="hero-cta">
+        <a href="mailto:jobsearchph.official@gmail.com?subject=Organization%20Inquiry%20%E2%80%94%20Job%20Search%20PH&body=Organization%20name%3A%20%0AContact%20person%3A%20%0ARoles%20needed%3A%20%0AHeadcount%3A%20%0ALocation%3A%20%0ATimeline%3A%20" class="btn btn-primary">Email our team</a>
+        <a href="https://m.me/thejobsearchph" target="_blank" rel="noopener" class="btn btn-ghost">Message on Messenger</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="block" style="padding-top:10px">
+  <div class="wrap reveal">
+    <div class="finalcta">
+      <h2>Ready to find the right match?</h2>
+      <p>Trusted household staffing across Bacolod and Negros Occidental — with no risk until you hire.</p>
+      <div class="hero-cta">
+        <a href="mailto:jobsearchph.official@gmail.com" class="btn btn-primary">Email us today</a>
+        <a href="https://m.me/thejobsearchph" target="_blank" rel="noopener" class="btn btn-ghost">Chat on Messenger</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div>
+      <a href="#" class="logo">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8.5h12l-.9 9.8a2.3 2.3 0 0 1-2.3 2.1H9.2a2.3 2.3 0 0 1-2.3-2.1L6 8.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+        Job Search PH
+      </a>
+      <p class="about">A candidate–employer matching platform for trusted household staffing across Bacolod and Negros Occidental.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#why">Why us</a></li>
+        <li><a href="#start">Get started</a></li>
+        <li><a href="#orgs">For organizations</a></li>
+        <li><a href="terms.html">Terms &amp; Privacy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:jobsearchph.official@gmail.com">jobsearchph.official@gmail.com</a></li>
+        <li><a href="https://m.me/thejobsearchph" target="_blank" rel="noopener">Messenger</a></li>
+        <li><span style="color:var(--slate)">Bacolod City, Philippines</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 Job Search PH. All rights reserved. · Republic of the Philippines</div>
+</footer>
+
+<!-- SUPPORT WIDGET -->
+<div class="support" id="support">
+  <div class="support-panel">
+    <div class="sh"><span class="sdot"></span><b>Need help?</b></div>
+    <div class="sd">Chat with us — we usually reply during business hours.</div>
+    <a class="schat" href="https://m.me/thejobsearchph" target="_blank" rel="noopener">
+      <span class="si msg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C6.5 3 3 6.9 3 11.2c0 2.4 1.1 4.5 3 5.9V21l3-1.6c.9.2 1.9.4 3 .4 5.5 0 9-3.9 9-8.6S17.5 3 12 3Z" stroke="#fff" stroke-width="1.6"/><path d="M7 13l3-3 2 2 3-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="stxt"><b>Chat on Messenger</b><small>Quickest way to reach us</small></span>
+      <span class="fast">FASTER</span>
+    </a>
+    <a class="schat" href="mailto:jobsearchph.official@gmail.com">
+      <span class="si mail"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="stxt"><b>Email us</b><small>jobsearchph.official@gmail.com</small></span>
+    </a>
+  </div>
+  <button class="support-fab" id="supportFab" aria-label="Open support chat">
+    <span class="ping"></span>
+    <svg class="ic-chat" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4c-1.2 0-2.4-.2-3.4-.6L4 21l1.4-4.3A8.2 8.2 0 0 1 4 11.5 8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="11.5" r="1" fill="#fff"/><circle cx="12.5" cy="11.5" r="1" fill="#fff"/><circle cx="16" cy="11.5" r="1" fill="#fff"/></svg>
+    <svg class="ic-close" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</div>
+
+<script>
+  // nav solidify on scroll
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 12); };
+  window.addEventListener('scroll', onScroll); onScroll();
+
+  // scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.12 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // support widget
+  var support = document.getElementById('support');
+  document.getElementById('supportFab').addEventListener('click', function(e){ e.stopPropagation(); support.classList.toggle('open'); });
+  document.addEventListener('click', function(e){ if(!support.contains(e.target)) support.classList.remove('open'); });
+</script>
+
+</body>
+</html>

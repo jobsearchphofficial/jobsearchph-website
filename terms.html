@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Search PH — Terms &amp; Services</title>
+<meta name="description" content="Terms & Services and Data Privacy Policy for Job Search PH, a candidate–employer matching platform operating in the Philippines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#edf0fb; --bg2:#f6f8fd;
+    --indigo:#3d4fd6; --indigo-deep:#2f3cb0;
+    --navy:#162046; --navy-2:#1c2750;
+    --slate:#525d7e; --slate-soft:#7e87a8; --slate-faint:#a3abc6;
+    --card:#ffffff; --line:#e3e8f5; --line-soft:#eef1fa;
+    --peach:#fdf4ea; --orange:#e8893a; --orange-text:#b85f1c;
+    --radius:20px; --radius-sm:14px; --maxw:1160px;
+    --shadow:0 18px 50px -24px rgba(34,46,110,.30);
+    --shadow-sm:0 8px 24px -14px rgba(34,46,110,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:96px}
+  body{
+    font-family:'Poppins',sans-serif;color:var(--navy);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(circle at 12% -5%,rgba(61,79,214,.10),transparent 42%),
+      radial-gradient(circle at 95% 6%,rgba(61,79,214,.06),transparent 38%),
+      linear-gradient(180deg,var(--bg1),var(--bg2) 55%);
+    background-attachment:fixed;
+  }
+  a{color:var(--indigo-deep);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  .logo{display:inline-flex;align-items:center;gap:11px;font-weight:700;color:var(--navy);font-size:1.08rem}
+  .logo .mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(150deg,#4a5ce6,#2f3cb0);
+    display:grid;place-items:center;box-shadow:0 8px 18px -8px rgba(47,60,176,.7)}
+  .logo .mark svg{width:20px;height:20px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;transition:.3s}
+  header.nav.scrolled{background:rgba(246,248,253,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--maxw);margin:0 auto}
+  .pillbtn{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:.9rem;border-radius:999px;
+    padding:10px 20px;background:rgba(255,255,255,.7);color:var(--navy);border:1px solid var(--line);transition:.2s}
+  .pillbtn:hover{background:#fff;border-color:#cdd6ef;text-decoration:none}
+
+  /* hero panel */
+  .hero{padding:46px 0 14px}
+  .hero-panel{background:linear-gradient(160deg,rgba(255,255,255,.55),rgba(255,255,255,.2));border:1px solid var(--line);
+    border-radius:26px;padding:48px 44px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+  .hero-panel::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(74,92,230,.12);filter:blur(60px);top:-100px;right:-40px}
+  .eyebrow{display:inline-flex;align-items:center;gap:11px;color:var(--indigo);font-size:.76rem;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--indigo);border-radius:2px}
+  .hero-panel h1{font-size:clamp(2.3rem,5.5vw,3.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.04;color:var(--navy);margin-bottom:10px}
+  .hero-panel .subtitle{font-size:1.25rem;font-weight:500;color:var(--slate-soft);margin-bottom:22px}
+  .hero-panel .lede{font-size:1.04rem;color:var(--slate);max-width:56ch}
+  .meta-row{display:flex;flex-wrap:wrap;gap:40px;margin-top:30px;position:relative}
+  .meta-item .ml{font-size:.82rem;color:var(--slate-soft);font-weight:500}
+  .meta-item .mv{font-size:.95rem;color:var(--navy);font-weight:600}
+
+  /* layout */
+  .shell{display:grid;grid-template-columns:248px 1fr;gap:54px;align-items:start;padding:28px 0 80px}
+  nav.toc{position:sticky;top:90px}
+  .toc-label{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-faint);margin-bottom:16px}
+  nav.toc ol{list-style:none;counter-reset:t;display:flex;flex-direction:column;gap:2px}
+  nav.toc li a{counter-increment:t;display:block;font-size:.88rem;color:var(--slate);padding:7px 12px;border-radius:9px;
+    border-left:2px solid transparent;line-height:1.35;transition:.18s}
+  nav.toc li a:hover{background:rgba(255,255,255,.7);color:var(--navy);text-decoration:none}
+  nav.toc li a.active{color:var(--indigo-deep);background:#fff;border-left-color:var(--indigo);font-weight:600;box-shadow:var(--shadow-sm)}
+
+  main{min-width:0}
+  section.clause{scroll-margin-top:96px;padding-bottom:38px;margin-bottom:34px;border-bottom:1px solid var(--line-soft)}
+  section.clause:last-of-type{border-bottom:none}
+  .clause-num{display:inline-block;font-size:.95rem;font-style:italic;font-weight:600;color:var(--indigo);margin-bottom:6px}
+  section.clause h2{font-size:clamp(1.5rem,3vw,1.9rem);font-weight:700;letter-spacing:-.01em;color:var(--navy);margin-bottom:18px;line-height:1.12}
+  section.clause p{color:var(--slate);margin-bottom:14px;max-width:70ch}
+  section.clause p strong,section.clause li strong{color:var(--navy);font-weight:600}
+  .subhead{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);margin:6px 0 14px}
+  .sub{font-weight:600;color:var(--navy);margin:20px 0 8px;font-size:.98rem}
+  section.clause ul{list-style:none;margin:4px 0 16px;max-width:70ch;display:flex;flex-direction:column;gap:11px}
+  section.clause ul li{position:relative;padding-left:26px;color:var(--slate)}
+  section.clause ul li::before{content:"";position:absolute;left:5px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--indigo);opacity:.55}
+
+  .disclaimer{background:var(--peach);border-left:4px solid var(--orange);border-radius:12px;padding:20px 22px;margin:18px 0 6px;max-width:70ch}
+  .disclaimer .dt{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-text);margin-bottom:8px}
+  .disclaimer p{color:var(--navy);margin:0;font-size:.96rem}
+  .disclaimer p strong{color:var(--navy)}
+
+  .callout{background:#fff;border:1px solid var(--line);border-left:4px solid var(--indigo);border-radius:12px;padding:18px 22px;margin:16px 0 6px;max-width:70ch;box-shadow:var(--shadow-sm)}
+  .callout .ct{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo-deep);margin-bottom:7px}
+  .callout p{color:var(--slate);margin:0}
+
+  .contact{margin-top:8px;background:linear-gradient(150deg,#1c2750,#141d3e);color:#fff;border-radius:22px;
+    padding:40px 36px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;position:relative;overflow:hidden}
+  .contact::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(74,92,230,.3);filter:blur(70px);top:-110px;right:-40px}
+  .contact h3{font-size:1.5rem;font-weight:700;margin-bottom:8px;position:relative}
+  .contact p{color:#b7c0e8;font-size:.94rem;max-width:48ch;margin:0;position:relative}
+  .contact a.mail{position:relative;background:linear-gradient(150deg,#4a5ce6,#3140bd);color:#fff;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.92rem;white-space:nowrap;transition:.2s}
+  .contact a.mail:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 14px 28px -12px rgba(0,0,0,.5)}
+
+  footer{border-top:1px solid var(--line);background:rgba(255,255,255,.5)}
+  .foot-bottom{text-align:center;padding:24px;color:var(--slate-soft);font-size:.82rem;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .foot-bottom a{color:var(--slate-soft)}
+
+  .toc-toggle{display:none}
+
+  /* ---------- support widget ---------- */
+  .support{position:fixed;bottom:24px;right:24px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+  .support-panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -20px rgba(34,46,110,.45);
+    width:300px;padding:20px;transform:translateY(16px) scale(.96);opacity:0;pointer-events:none;transform-origin:bottom right;transition:.26s cubic-bezier(.16,.84,.44,1)}
+  .support.open .support-panel{transform:none;opacity:1;pointer-events:auto}
+  .support-panel .sh{display:flex;align-items:center;gap:11px;margin-bottom:5px}
+  .support-panel .sh .sdot{width:9px;height:9px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18)}
+  .support-panel .sh b{color:var(--navy);font-size:1rem;font-weight:600}
+  .support-panel .sd{color:var(--slate-soft);font-size:.82rem;margin-bottom:16px;line-height:1.45}
+  .schat{display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:13px;border:1px solid var(--line);
+    background:#fbfcff;transition:.2s;margin-bottom:9px}
+  .schat:last-child{margin-bottom:0}
+  .schat:hover{background:#fff;border-color:#c7d0ef;transform:translateX(3px);text-decoration:none}
+  .schat .si{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:#fff;flex-shrink:0}
+  .schat .si.msg{background:#0a7cff}.schat .si.mail{background:#3d4fd6}
+  .schat .si svg{width:18px;height:18px}
+  .schat .stxt b{display:block;color:var(--navy);font-size:.9rem;font-weight:600;line-height:1.2}
+  .schat .stxt small{color:var(--slate-soft);font-size:.74rem}
+  .schat .fast{margin-left:auto;background:#eafaf0;color:#1f9d57;font-size:.62rem;font-weight:700;padding:3px 7px;border-radius:6px;letter-spacing:.04em}
+  .support-fab{width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(150deg,#4a5ce6,#2f3cb0);color:#fff;display:grid;place-items:center;
+    box-shadow:0 16px 34px -12px rgba(47,60,176,.8);transition:.24s;position:relative}
+  .support-fab:hover{transform:translateY(-3px) scale(1.04)}
+  .support-fab svg{width:26px;height:26px;transition:.24s;position:absolute}
+  .support-fab .ic-close{opacity:0;transform:rotate(-90deg) scale(.6)}
+  .support.open .support-fab .ic-chat{opacity:0;transform:rotate(90deg) scale(.6)}
+  .support.open .support-fab .ic-close{opacity:1;transform:none}
+  .support-fab .ping{position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#e8893a;border:2px solid #fff}
+  @media(max-width:480px){.support{bottom:16px;right:16px}.support-panel{width:min(82vw,300px)}}
+  @media(max-width:920px){
+    .shell{grid-template-columns:1fr;gap:0;padding-top:14px}
+    .hero-panel{padding:36px 26px}
+    nav.toc{position:static;margin-bottom:20px;border:1px solid var(--line);border-radius:var(--radius-sm);background:rgba(255,255,255,.6);overflow:hidden}
+    .toc-inner{display:none;padding:8px 12px 14px}
+    nav.toc.open .toc-inner{display:block}
+    .toc-label{display:none}
+    .toc-toggle{display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;
+      font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);padding:16px}
+    .toc-toggle .arr{color:var(--indigo);transition:.2s}
+    nav.toc.open .toc-toggle .arr{transform:rotate(180deg)}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8.5h12l-.9 9.8a2.3 2.3 0 0 1-2.3 2.1H9.2a2.3 2.3 0 0 1-2.3-2.1L6 8.5Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+      Job Search PH
+    </a>
+    <a href="index.html" class="pillbtn">← Back to home</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-panel">
+      <span class="eyebrow">Legal Document</span>
+      <h1>Terms &amp; Services</h1>
+      <div class="subtitle">Data Privacy Policy</div>
+      <p class="lede">Please review these terms carefully before using Job Search PH. By accessing or continuing to use our service, you acknowledge and agree to the conditions outlined here, including our Data Privacy Policy.</p>
+      <div class="meta-row">
+        <div class="meta-item"><div class="ml">Last updated</div><div class="mv">June 2026</div></div>
+        <div class="meta-item"><div class="ml">Jurisdiction</div><div class="mv">Republic of the Philippines</div></div>
+        <div class="meta-item"><div class="ml">Operator</div><div class="mv">Job Search PH</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+<div class="shell">
+
+  <nav class="toc" id="toc">
+    <button class="toc-toggle" id="tocToggle">Contents <span class="arr">▾</span></button>
+    <div class="toc-inner">
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#s1">Service Overview</a></li>
+        <li><a href="#s2">Nature of the Platform</a></li>
+        <li><a href="#s3">How Matching Works</a></li>
+        <li><a href="#s4">Service Fee</a></li>
+        <li><a href="#s5">Replacement Guarantee</a></li>
+        <li><a href="#s6">Candidate Verification</a></li>
+        <li><a href="#s7">Employer Responsibilities</a></li>
+        <li><a href="#s8">Jobseeker Responsibilities</a></li>
+        <li><a href="#s9">Conduct, Safety &amp; Risk</a></li>
+        <li><a href="#s10">No Guarantee</a></li>
+        <li><a href="#s11">Off-Platform Comms</a></li>
+        <li><a href="#s12">Limitation of Liability</a></li>
+        <li><a href="#s13">Data Usage &amp; Privacy</a></li>
+        <li><a href="#s14">AI &amp; Automation</a></li>
+        <li><a href="#s15">Service Availability</a></li>
+        <li><a href="#s16">User Misconduct</a></li>
+        <li><a href="#s17">Force Majeure</a></li>
+        <li><a href="#s18">Intellectual Property</a></li>
+        <li><a href="#s19">Modification of Terms</a></li>
+        <li><a href="#s20">Governing Law &amp; Acceptance</a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="clause" id="s1">
+      <span class="clause-num">01</span>
+      <h2>Service Overview</h2>
+      <p>Job Search PH (<strong>"JSPH," "we," "us,"</strong> or <strong>"our"</strong>) is a candidate–employer matching platform that connects jobseekers with potential employers across the Philippines.</p>
+      <div class="subhead">Our services include</div>
+      <ul>
+        <li>Screening and reviewing candidate information</li>
+        <li>Matching candidates to job opportunities</li>
+        <li>Facilitating communication between employers and jobseekers</li>
+      </ul>
+      <div class="disclaimer">
+        <div class="dt">Disclaimer</div>
+        <p>Job Search PH is <strong>not</strong> a recruitment agency, employer, or employee. We do not employ, supervise, manage, or control any jobseeker or employer. We act solely as a third-party matching platform, and we are not party to the employment relationship formed between users.</p>
+      </div>
+    </section>
+
+    <section class="clause" id="s2">
+      <span class="clause-num">02</span>
+      <h2>Nature of the Platform</h2>
+      <ul>
+        <li>Job Search PH operates primarily as an online-based service.</li>
+        <li>No physical office visit is required unless explicitly arranged.</li>
+        <li>All matching, communication, and coordination are conducted online or through mutually agreed channels, such as email or Messenger.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s3">
+      <span class="clause-num">03</span>
+      <h2>How Matching Works</h2>
+      <p>Employers submit a job request describing the role, requirements, and offered compensation. Jobseekers apply and provide their information through our designated channels. JSPH reviews and screens candidates, then endorses suitable matches to the employer. The employer conducts its own interviews and makes the final hiring decision.</p>
+      <p>Endorsement of a candidate is a recommendation only and does not constitute a guarantee of suitability, hiring, or performance.</p>
+    </section>
+
+    <section class="clause" id="s4">
+      <span class="clause-num">04</span>
+      <h2>Service Fee</h2>
+      <ul>
+        <li>A <strong>service fee</strong> (covering matching and facilitation) is charged to <strong>employers only</strong>. We never charge jobseekers, consistent with the Domestic Workers Act (Republic Act No. 10361).</li>
+        <li><strong>No placement, no fee.</strong> No service fee is due unless a candidate is successfully hired by the employer.</li>
+        <li>The service fee is equivalent to <strong>twenty percent (20%) of the candidate's agreed first-month salary</strong>, unless a different amount is agreed in writing.</li>
+        <li>The fee becomes due upon <strong>turnover of the candidate's complete requirements, or the candidate's first day of work — whichever comes first.</strong></li>
+        <li>Payment confirms the employer's commitment to the selected candidate.</li>
+        <li>Fees are non-refundable once a candidate has been hired, except as expressly provided under the Replacement Guarantee (Section 5).</li>
+      </ul>
+      <div class="callout">
+        <div class="ct">Plain-language summary</div>
+        <p>You only pay if you hire. The fee is a one-time service fee based on the agreed first-month salary, due when the worker starts or when requirements are turned over.</p>
+      </div>
+    </section>
+
+    <section class="clause" id="s5">
+      <span class="clause-num">05</span>
+      <h2>Replacement Guarantee</h2>
+      <p>If a hired candidate resigns, is dismissed for valid cause, or proves unsuitable within <strong>thirty (30) calendar days</strong> of their first day of work, JSPH will endeavor to provide <strong>one (1) replacement candidate at no additional service fee</strong>, subject to candidate availability and to the employer's compliance with these Terms.</p>
+      <p>The guarantee does not apply where:</p>
+      <ul>
+        <li>The employer materially misrepresented the role, working conditions, or compensation;</li>
+        <li>The departure resulted from unlawful, unsafe, or unfair treatment of the worker;</li>
+        <li>The agreed service fee was not paid; or</li>
+        <li>More than thirty (30) days have passed since the candidate's first day.</li>
+      </ul>
+      <p>Unless otherwise agreed in writing, the guarantee covers one replacement per placement.</p>
+    </section>
+
+    <section class="clause" id="s6">
+      <span class="clause-num">06</span>
+      <h2>Candidate Verification</h2>
+      <ul>
+        <li>JSPH conducts basic screening and verification of candidate information.</li>
+        <li>Verification is based on data provided by jobseekers and on available references.</li>
+        <li>We do not guarantee the accuracy, completeness, or truthfulness of any information provided.</li>
+        <li>Employers remain responsible for conducting their own background checks and final validation before hiring.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s7">
+      <span class="clause-num">07</span>
+      <h2>Employer Responsibilities</h2>
+      <p>Employers agree to:</p>
+      <ul>
+        <li>Conduct interviews and make their own final hiring decisions;</li>
+        <li>Provide fair compensation and humane working conditions;</li>
+        <li>Comply with Philippine labor laws, including the Domestic Workers Act (RA 10361);</li>
+        <li>Ensure workplace safety and the lawful, respectful treatment of workers.</li>
+      </ul>
+      <p>JSPH is not responsible for employer conduct or decisions, salary disputes or employment terms, or workplace conditions and private agreements.</p>
+    </section>
+
+    <section class="clause" id="s8">
+      <span class="clause-num">08</span>
+      <h2>Jobseeker Responsibilities</h2>
+      <p>Jobseekers agree to:</p>
+      <ul>
+        <li>Provide truthful and accurate information;</li>
+        <li>Be available and responsive when matched;</li>
+        <li>Communicate professionally with employers;</li>
+        <li>Honor interview and job commitments.</li>
+      </ul>
+      <p>JSPH is not liable for false or misleading information provided by jobseekers, or for jobseeker behavior, performance, or actions.</p>
+    </section>
+
+    <section class="clause" id="s9">
+      <span class="clause-num">09</span>
+      <h2>Conduct, Safety &amp; Risk Acknowledgment</h2>
+      <p>JSPH does not supervise or control the behavior of employers or jobseekers. By using this platform, both parties acknowledge that:</p>
+      <ul>
+        <li>JSPH is not liable for theft, loss of property, or damages caused by either party;</li>
+        <li>JSPH is not responsible for physical harm, injury, harassment, abuse, or misconduct;</li>
+        <li>All employment arrangements are entered into at the user's own risk;</li>
+        <li>Employers must conduct their own due diligence;</li>
+        <li>Jobseekers must evaluate employer safety and legitimacy.</li>
+      </ul>
+      <div class="disclaimer">
+        <div class="dt">No liability between users</div>
+        <p>Job Search PH is <strong>not a party to</strong> any relationship, agreement, or interaction between an employer and a jobseeker, and accepts <strong>no liability for any act, omission, dispute, loss, damage, injury, or harm arising between them</strong> — whether before, during, or after a placement, and whether occurring on or off the platform. All dealings between the two parties are conducted solely between themselves and entirely at their own risk.</p>
+      </div>
+    </section>
+
+    <section class="clause" id="s10">
+      <span class="clause-num">10</span>
+      <h2>No Guarantee of Employment or Performance</h2>
+      <ul>
+        <li>JSPH does not guarantee employment for jobseekers.</li>
+        <li>JSPH does not guarantee hiring decisions by employers.</li>
+        <li>JSPH does not guarantee candidate performance, behavior, or reliability beyond the limited Replacement Guarantee in Section 5.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s11">
+      <span class="clause-num">11</span>
+      <h2>Off-Platform Communication</h2>
+      <ul>
+        <li>Any communication or agreement made outside Job Search PH is the sole responsibility of both parties.</li>
+        <li>JSPH is not liable for disputes arising from off-platform transactions or private arrangements.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s12">
+      <span class="clause-num">12</span>
+      <h2>Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, JSPH shall not be liable for employment disputes, financial losses, damages caused by either party, or job-performance issues.</p>
+      <div class="callout">
+        <div class="ct">Liability cap</div>
+        <p>Our maximum aggregate liability to any party is limited to the service fees actually paid to JSPH by that party in connection with the relevant placement.</p>
+      </div>
+    </section>
+
+    <section class="clause" id="s13">
+      <span class="clause-num">13</span>
+      <h2>Data Usage &amp; Privacy Policy</h2>
+      <p>JSPH processes personal data in accordance with the <strong>Data Privacy Act of 2012 (Republic Act No. 10173)</strong> and the issuances of the National Privacy Commission (NPC).</p>
+      <p class="sub">13.1 — Data we collect</p>
+      <ul>
+        <li>Name, age, and contact details;</li>
+        <li>Employment history and skills;</li>
+        <li>Location and work preferences.</li>
+      </ul>
+      <p class="sub">13.2 — Purpose</p>
+      <ul>
+        <li>Matching candidates with employers;</li>
+        <li>Communication and coordination;</li>
+        <li>Service improvement.</li>
+      </ul>
+      <p class="sub">13.3 — Data sharing</p>
+      <ul>
+        <li>Shared only with relevant employers during the matching process;</li>
+        <li>Never sold to third parties under any circumstances.</li>
+      </ul>
+      <p class="sub">13.4 — Data security</p>
+      <ul>
+        <li>Protected with reasonable technical and organizational safeguards;</li>
+        <li>Access limited to authorized personnel only.</li>
+      </ul>
+      <p class="sub">13.5 — Your rights</p>
+      <p>In accordance with the Data Privacy Act, you may request access to your personal data, request correction of inaccurate information, or request deletion where applicable. To exercise these rights, contact us at the email address below.</p>
+    </section>
+
+    <section class="clause" id="s14">
+      <span class="clause-num">14</span>
+      <h2>AI &amp; Automation Disclosure</h2>
+      <ul>
+        <li>JSPH may use AI or automated systems for communication and initial screening.</li>
+        <li>Some responses may be partially automated.</li>
+        <li>Final decisions are reviewed and handled by human administrators.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s15">
+      <span class="clause-num">15</span>
+      <h2>Service Availability</h2>
+      <ul>
+        <li>We do not guarantee uninterrupted service.</li>
+        <li>Delays may occur due to demand, availability, or external factors.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s16">
+      <span class="clause-num">16</span>
+      <h2>User Misconduct</h2>
+      <p>JSPH reserves the right to refuse service, remove users, or restrict access for:</p>
+      <ul>
+        <li>Fraud or misrepresentation;</li>
+        <li>Abuse of the platform or of other users;</li>
+        <li>Unprofessional or harmful behavior.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s17">
+      <span class="clause-num">17</span>
+      <h2>Force Majeure</h2>
+      <p>JSPH is not liable for delays or failures caused by events beyond our reasonable control, including natural disasters, internet outages, power interruptions, or critical system failures.</p>
+    </section>
+
+    <section class="clause" id="s18">
+      <span class="clause-num">18</span>
+      <h2>Intellectual Property</h2>
+      <p>All branding, systems, content, and materials are owned by Job Search PH. Unauthorized reproduction or use is strictly prohibited.</p>
+    </section>
+
+    <section class="clause" id="s19">
+      <span class="clause-num">19</span>
+      <h2>Modification of Terms</h2>
+      <p>We may update these Terms from time to time. Where practicable, material changes will be announced through our official channels. Continued use of the platform after changes take effect constitutes acceptance of the revised Terms.</p>
+    </section>
+
+    <section class="clause" id="s20">
+      <span class="clause-num">20</span>
+      <h2>Governing Law &amp; Acceptance</h2>
+      <p>These Terms are governed by the laws of the Republic of the Philippines. Any dispute shall be brought before the proper courts of Negros Occidental.</p>
+      <p>By using Job Search PH, you confirm that you have read, understood, and agreed to all conditions outlined in this document, and that you accept all associated risks. <strong>Your continued use constitutes your full acceptance of these Terms.</strong></p>
+    </section>
+
+    <div class="contact">
+      <div>
+        <h3>Questions about these terms?</h3>
+        <p>Reach out for clarifications, data requests, or to submit a job order. We're based in Bacolod City and operate across Negros Occidental.</p>
+      </div>
+      <a class="mail" href="mailto:jobsearchph.official@gmail.com">jobsearchph.official@gmail.com</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<footer>
+  <div class="foot-bottom">
+    <span>© 2026 Job Search PH. All rights reserved.</span>
+    <span>·</span>
+    <span>Bacolod City · Republic of the Philippines</span>
+    <span>·</span>
+    <a href="index.html">Home</a>
+  </div>
+</footer>
+
+<!-- SUPPORT WIDGET -->
+<div class="support" id="support">
+  <div class="support-panel">
+    <div class="sh"><span class="sdot"></span><b>Need help?</b></div>
+    <div class="sd">Chat with us — we usually reply during business hours.</div>
+    <a class="schat" href="https://m.me/thejobsearchph" target="_blank" rel="noopener">
+      <span class="si msg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C6.5 3 3 6.9 3 11.2c0 2.4 1.1 4.5 3 5.9V21l3-1.6c.9.2 1.9.4 3 .4 5.5 0 9-3.9 9-8.6S17.5 3 12 3Z" stroke="#fff" stroke-width="1.6"/><path d="M7 13l3-3 2 2 3-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="stxt"><b>Chat on Messenger</b><small>Quickest way to reach us</small></span>
+      <span class="fast">FASTER</span>
+    </a>
+    <a class="schat" href="mailto:jobsearchph.official@gmail.com">
+      <span class="si mail"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="stxt"><b>Email us</b><small>jobsearchph.official@gmail.com</small></span>
+    </a>
+  </div>
+  <button class="support-fab" id="supportFab" aria-label="Open support chat">
+    <span class="ping"></span>
+    <svg class="ic-chat" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4c-1.2 0-2.4-.2-3.4-.6L4 21l1.4-4.3A8.2 8.2 0 0 1 4 11.5 8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="11.5" r="1" fill="#fff"/><circle cx="12.5" cy="11.5" r="1" fill="#fff"/><circle cx="16" cy="11.5" r="1" fill="#fff"/></svg>
+    <svg class="ic-close" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</div>
+
+<script>
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 12); };
+  window.addEventListener('scroll', onScroll); onScroll();
+
+  var toc = document.getElementById('toc');
+  document.getElementById('tocToggle').addEventListener('click', function(){ toc.classList.toggle('open'); });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var map = {}; links.forEach(function(l){ map[l.getAttribute('href').slice(1)] = l; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        if(map[e.target.id]) map[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin:'-18% 0px -72% 0px', threshold:0 });
+  document.querySelectorAll('section.clause').forEach(function(s){ obs.observe(s); });
+  links.forEach(function(l){ l.addEventListener('click', function(){ if(window.innerWidth<=920) toc.classList.remove('open'); }); });
+
+  // support widget
+  var support = document.getElementById('support');
+  document.getElementById('supportFab').addEventListener('click', function(e){ e.stopPropagation(); support.classList.toggle('open'); });
+  document.addEventListener('click', function(e){ if(!support.contains(e.target)) support.classList.remove('open'); });
+</script>
+
+</body>
+</html>
